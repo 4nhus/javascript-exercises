@@ -3,11 +3,11 @@ const findTheOldest = function(array) {
         if (person.yearOfDeath === undefined) {
             person.yearOfDeath = new Date().getFullYear();
         }
+
+        person.age = person.yearOfDeath - person.yearOfBirth;
     }
 
-    array.sort((personLeft, personRight) => (personLeft.yearOfDeath - personLeft.yearOfBirth) - (personRight.yearOfDeath - personRight.yearOfBirth));
-
-    return array[array.length - 1];
+    return array.sort((personLeft, personRight) => personRight.age - personLeft.age)[0];
 };
 
 // Do not edit below this line
